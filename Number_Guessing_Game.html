@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Number Guessing Game</title>
+    <style>pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #ffffff; }
+.highlight .c { color: #888 } /* Comment */
+.highlight .err { color: #F00; background-color: #FAA } /* Error */
+.highlight .k { color: #080; font-weight: bold } /* Keyword */
+.highlight .o { color: #333 } /* Operator */
+.highlight .ch { color: #888 } /* Comment.Hashbang */
+.highlight .cm { color: #888 } /* Comment.Multiline */
+.highlight .cp { color: #579 } /* Comment.Preproc */
+.highlight .cpf { color: #888 } /* Comment.PreprocFile */
+.highlight .c1 { color: #888 } /* Comment.Single */
+.highlight .cs { color: #C00; font-weight: bold } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.highlight .gr { color: #F00 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #888 } /* Generic.Output */
+.highlight .gp { color: #C65D09; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #04D } /* Generic.Traceback */
+.highlight .kc { color: #080; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #080; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #080; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #038; font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { color: #080; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #339; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #60E; font-weight: bold } /* Literal.Number */
+.highlight .s { background-color: #FFF0F0 } /* Literal.String */
+.highlight .na { color: #00C } /* Name.Attribute */
+.highlight .nb { color: #007020 } /* Name.Builtin */
+.highlight .nc { color: #B06; font-weight: bold } /* Name.Class */
+.highlight .no { color: #036; font-weight: bold } /* Name.Constant */
+.highlight .nd { color: #555; font-weight: bold } /* Name.Decorator */
+.highlight .ni { color: #800; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #F00; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #06B; font-weight: bold } /* Name.Function */
+.highlight .nl { color: #970; font-weight: bold } /* Name.Label */
+.highlight .nn { color: #0E84B5; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #070 } /* Name.Tag */
+.highlight .nv { color: #963 } /* Name.Variable */
+.highlight .ow { color: #000; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #BBB } /* Text.Whitespace */
+.highlight .mb { color: #60E; font-weight: bold } /* Literal.Number.Bin */
+.highlight .mf { color: #60E; font-weight: bold } /* Literal.Number.Float */
+.highlight .mh { color: #058; font-weight: bold } /* Literal.Number.Hex */
+.highlight .mi { color: #00D; font-weight: bold } /* Literal.Number.Integer */
+.highlight .mo { color: #40E; font-weight: bold } /* Literal.Number.Oct */
+.highlight .sa { background-color: #FFF0F0 } /* Literal.String.Affix */
+.highlight .sb { background-color: #FFF0F0 } /* Literal.String.Backtick */
+.highlight .sc { color: #04D } /* Literal.String.Char */
+.highlight .dl { background-color: #FFF0F0 } /* Literal.String.Delimiter */
+.highlight .sd { color: #D42 } /* Literal.String.Doc */
+.highlight .s2 { background-color: #FFF0F0 } /* Literal.String.Double */
+.highlight .se { color: #666; font-weight: bold; background-color: #FFF0F0 } /* Literal.String.Escape */
+.highlight .sh { background-color: #FFF0F0 } /* Literal.String.Heredoc */
+.highlight .si { background-color: #EEE } /* Literal.String.Interpol */
+.highlight .sx { color: #D20; background-color: #FFF0F0 } /* Literal.String.Other */
+.highlight .sr { color: #000; background-color: #FFF0FF } /* Literal.String.Regex */
+.highlight .s1 { background-color: #FFF0F0 } /* Literal.String.Single */
+.highlight .ss { color: #A60 } /* Literal.String.Symbol */
+.highlight .bp { color: #007020 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #06B; font-weight: bold } /* Name.Function.Magic */
+.highlight .vc { color: #369 } /* Name.Variable.Class */
+.highlight .vg { color: #D70; font-weight: bold } /* Name.Variable.Global */
+.highlight .vi { color: #33B } /* Name.Variable.Instance */
+.highlight .vm { color: #963 } /* Name.Variable.Magic */
+.highlight .il { color: #00D; font-weight: bold } /* Literal.Number.Integer.Long */</style>
+</head>
+<body>
+<h2>Number Guessing Game with Python</h2>
+<p>In this project, I will walk you through how to create a number guessing game with the programming language Python.
+A guessing game includes handling user input, using the if statement as well as looping constructs.</p>
+
+<h3>How Number Guessing Game Works?</h3>
+<ol>
+<li>The program randomly selects a number between 1 and 100 or any other combination of numbers.</li>
+<li>It will then ask the player to enter his proposal.</li>
+<li>It will then check if this number is the same as the one generated randomly by the computer; if so, the player wins.</li>
+<li>If the player’s guess is not the same, then he will check if the number is higher or lower than the guess and tell the player.</li>
+</ol>
+
+<h3>Python Code:</h3>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<!--
+generated by Pygments <https://pygments.org/>
+Copyright 2006-2025 by the Pygments team.
+Licensed under the BSD license, see LICENSE for details.
+-->
+<html>
+<head>
+  <title></title>
+  <meta http-equiv="content-type" content="text/html; charset=None">
+  <style type="text/css">
+/*
+generated by Pygments <https://pygments.org/>
+Copyright 2006-2025 by the Pygments team.
+Licensed under the BSD license, see LICENSE for details.
+*/
+pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+body .hll { background-color: #ffffcc }
+body { background: #ffffff; }
+body .c { color: #888 } /* Comment */
+body .err { color: #F00; background-color: #FAA } /* Error */
+body .k { color: #080; font-weight: bold } /* Keyword */
+body .o { color: #333 } /* Operator */
+body .ch { color: #888 } /* Comment.Hashbang */
+body .cm { color: #888 } /* Comment.Multiline */
+body .cp { color: #579 } /* Comment.Preproc */
+body .cpf { color: #888 } /* Comment.PreprocFile */
+body .c1 { color: #888 } /* Comment.Single */
+body .cs { color: #C00; font-weight: bold } /* Comment.Special */
+body .gd { color: #A00000 } /* Generic.Deleted */
+body .ge { font-style: italic } /* Generic.Emph */
+body .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+body .gr { color: #F00 } /* Generic.Error */
+body .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+body .gi { color: #00A000 } /* Generic.Inserted */
+body .go { color: #888 } /* Generic.Output */
+body .gp { color: #C65D09; font-weight: bold } /* Generic.Prompt */
+body .gs { font-weight: bold } /* Generic.Strong */
+body .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+body .gt { color: #04D } /* Generic.Traceback */
+body .kc { color: #080; font-weight: bold } /* Keyword.Constant */
+body .kd { color: #080; font-weight: bold } /* Keyword.Declaration */
+body .kn { color: #080; font-weight: bold } /* Keyword.Namespace */
+body .kp { color: #038; font-weight: bold } /* Keyword.Pseudo */
+body .kr { color: #080; font-weight: bold } /* Keyword.Reserved */
+body .kt { color: #339; font-weight: bold } /* Keyword.Type */
+body .m { color: #60E; font-weight: bold } /* Literal.Number */
+body .s { background-color: #FFF0F0 } /* Literal.String */
+body .na { color: #00C } /* Name.Attribute */
+body .nb { color: #007020 } /* Name.Builtin */
+body .nc { color: #B06; font-weight: bold } /* Name.Class */
+body .no { color: #036; font-weight: bold } /* Name.Constant */
+body .nd { color: #555; font-weight: bold } /* Name.Decorator */
+body .ni { color: #800; font-weight: bold } /* Name.Entity */
+body .ne { color: #F00; font-weight: bold } /* Name.Exception */
+body .nf { color: #06B; font-weight: bold } /* Name.Function */
+body .nl { color: #970; font-weight: bold } /* Name.Label */
+body .nn { color: #0E84B5; font-weight: bold } /* Name.Namespace */
+body .nt { color: #070 } /* Name.Tag */
+body .nv { color: #963 } /* Name.Variable */
+body .ow { color: #000; font-weight: bold } /* Operator.Word */
+body .w { color: #BBB } /* Text.Whitespace */
+body .mb { color: #60E; font-weight: bold } /* Literal.Number.Bin */
+body .mf { color: #60E; font-weight: bold } /* Literal.Number.Float */
+body .mh { color: #058; font-weight: bold } /* Literal.Number.Hex */
+body .mi { color: #00D; font-weight: bold } /* Literal.Number.Integer */
+body .mo { color: #40E; font-weight: bold } /* Literal.Number.Oct */
+body .sa { background-color: #FFF0F0 } /* Literal.String.Affix */
+body .sb { background-color: #FFF0F0 } /* Literal.String.Backtick */
+body .sc { color: #04D } /* Literal.String.Char */
+body .dl { background-color: #FFF0F0 } /* Literal.String.Delimiter */
+body .sd { color: #D42 } /* Literal.String.Doc */
+body .s2 { background-color: #FFF0F0 } /* Literal.String.Double */
+body .se { color: #666; font-weight: bold; background-color: #FFF0F0 } /* Literal.String.Escape */
+body .sh { background-color: #FFF0F0 } /* Literal.String.Heredoc */
+body .si { background-color: #EEE } /* Literal.String.Interpol */
+body .sx { color: #D20; background-color: #FFF0F0 } /* Literal.String.Other */
+body .sr { color: #000; background-color: #FFF0FF } /* Literal.String.Regex */
+body .s1 { background-color: #FFF0F0 } /* Literal.String.Single */
+body .ss { color: #A60 } /* Literal.String.Symbol */
+body .bp { color: #007020 } /* Name.Builtin.Pseudo */
+body .fm { color: #06B; font-weight: bold } /* Name.Function.Magic */
+body .vc { color: #369 } /* Name.Variable.Class */
+body .vg { color: #D70; font-weight: bold } /* Name.Variable.Global */
+body .vi { color: #33B } /* Name.Variable.Instance */
+body .vm { color: #963 } /* Name.Variable.Magic */
+body .il { color: #00D; font-weight: bold } /* Literal.Number.Integer.Long */
+
+  </style>
+</head>
+<body>
+<h2></h2>
+
+<div class="highlight"><pre><span></span><span class="c1"># to import random module</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="c1"># to create a range of random numbers between 1-100</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="c1"># to take a user input to enter a number</span>
+<span class="n">guess</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter any number: &quot;</span><span class="p">))</span>
+<span class="k">while</span> <span class="n">n</span> <span class="o">!=</span> <span class="n">guess</span><span class="p">:</span> <span class="c1"># means if n is not equal to the input guess</span>
+    <span class="k">if</span> <span class="n">guess</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Too low&quot;</span><span class="p">)</span>
+        <span class="n">guess</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter number again: &quot;</span><span class="p">))</span>
+    <span class="k">elif</span> <span class="n">guess</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Too high!&quot;</span><span class="p">)</span>
+        <span class="n">guess</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter number again: &quot;</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">break</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;you guessed it right!!&quot;</span><span class="p">)</span>
+</pre></div>
+</body>
+</html>
+
+
+<h3>Sample Output:</h3>
+<pre>
+Enter any number: 67
+Too high!
+Enter number again: 45
+Too low
+Enter number again: 50
+Too low
+Enter number again: 55
+Too high!
+Enter number again: 52
+Too low
+Enter number again: 54
+you guessed it right!!
+</pre>
+
+<p>I hope you liked this article on Guessing Game with Python programming language.</p>
+</body>
+</html>
